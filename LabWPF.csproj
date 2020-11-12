@@ -63,6 +63,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Extentions.cs" />
+    <Compile Include="Models\DataModel.cs" />
+    <Compile Include="Models\Line.cs" />
     <Compile Include="Models\Transformator.cs" />
     <Compile Include="VIewModels\TransformatorsVM.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">

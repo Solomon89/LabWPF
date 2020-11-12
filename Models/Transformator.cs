@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace LabWPF.Models
 {
-    class Transformator
+    [Serializable]
+    public class Transformator
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public double Voltage { get; set; }
         public double Resistance { get; set; }
+
+
 
     }
 }

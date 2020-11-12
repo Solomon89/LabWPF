@@ -26,10 +26,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="dataGrid" Grid.ColumnSpan="3" Grid.RowSpan="2" ItemsSource="{Binding Transformators}" SelectedItem="{Binding SelectedTransformator}"/>
+        <DataGrid x:Name="dataGrid" Grid.ColumnSpan="3" Grid.RowSpan="2" ItemsSource="{Binding DataModel.Transformators}" SelectedItem="{Binding SelectedTransformator}"/>
         <TextBox Grid.Row="3" Text="{Binding SelectedTransformator.Name}" Height="20"/>
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedTransformator.Voltage}" Height="20"/>
         <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding SelectedTransformator.Resistance}" Height="20"/>
+        <DataGrid x:Name="dataGrid2" Grid.Column="3" Grid.RowSpan="2" ItemsSource="{Binding DataModel.Line}" />
+
+
+
+
     </Grid>
 
 </Window>
