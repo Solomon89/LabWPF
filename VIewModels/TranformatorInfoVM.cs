@@ -28,8 +28,22 @@ namespace LabWPF.VIewModels
             this.Transformator = Transformator;
             this.Close = Close;
         }
-
+        private void SaveAndCloseForm()
+        {
+            DataModel.Transformators.Add(Transformator);
+            Close();
+        }
         #region ICommand
+        public ICommand SaveAndCloseFormCommand
+        {
+            get
+            {
+                return new ActionCommand(() =>
+                {
+                    SaveAndCloseForm();
+                });
+            }
+        }
         public ICommand CloseFormCommand
         {
             get

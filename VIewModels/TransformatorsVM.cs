@@ -53,6 +53,16 @@ namespace LabWPF.VIewModels
             VM.Close = view.Close;
             view.Show();
         }
+        private void ShowTranformatorInfoNew()
+        {
+            var view = new ShowTranformatorInfo();
+            TranformatorInfoVM VM = (TranformatorInfoVM)view.DataContext;
+            VM.Transformator = new Transformator();
+            VM.DataModel = DataModel;
+            VM.Close = view.Close;
+            view.Show();
+            //OnPropertyChanged("DataModel");
+        }
         #region ICommand
         public ICommand DeleteTranformatorCommand
         {
@@ -71,6 +81,16 @@ namespace LabWPF.VIewModels
                 return new ActionCommand(() =>
                 {
                     ShowTranformatorInfo();
+                });
+            }
+        }
+        public ICommand ShowTranformatorInfoNewCommand
+        {
+            get
+            {
+                return new ActionCommand(() =>
+                {
+                    ShowTranformatorInfoNew();
                 });
             }
         }

@@ -20,6 +20,7 @@
         <TextBox Text="{Binding Transformator.Resistance}"/>
         <Label Content="Вольтаж"/>
         <TextBox Text="{Binding Transformator.Voltage}"/>
+        <Button Content="Сохранить" Command="{Binding SaveAndCloseFormCommand}"/>
         <Button Content="Закрыть" Command="{Binding CloseFormCommand}"/>
     </StackPanel>
 </Window>

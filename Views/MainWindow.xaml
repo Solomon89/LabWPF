@@ -31,8 +31,9 @@
         <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding SelectedTransformator.Resistance}" Height="20"/>
         <DataGrid x:Name="dataGrid2" Grid.Column="3" Grid.RowSpan="2" ItemsSource="{Binding DataModel.Line}" />
         <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal">
-            <Button  Width="100" Content="Подробнее" Command="{Binding ShowTranformatorInfoCommand}"/>
-            <Button  Width="100" Content="Удалить" Command="{Binding DeleteTranformatorCommand}"/>
+            <Button  Width="60" Content="Добавить" Command="{Binding ShowTranformatorInfoNewCommand}"/>
+            <Button  Width="60" Content="Подробнее" Command="{Binding ShowTranformatorInfoCommand}"/>
+            <Button  Width="60" Content="Удалить" Command="{Binding DeleteTranformatorCommand}"/>
 
         </StackPanel>
        
