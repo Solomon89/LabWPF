@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LabWPF.Views"
         xmlns:viewModel="clr-namespace:LabWPF.VIewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -31,8 +30,12 @@
         <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding SelectedTransformator.Voltage}" Height="20"/>
         <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding SelectedTransformator.Resistance}" Height="20"/>
         <DataGrid x:Name="dataGrid2" Grid.Column="3" Grid.RowSpan="2" ItemsSource="{Binding DataModel.Line}" />
+        <StackPanel Grid.Row="3" Grid.Column="3" Orientation="Horizontal">
+            <Button  Width="100" Content="Подробнее" Command="{Binding ShowTranformatorInfoCommand}"/>
+            <Button  Width="100" Content="Удалить" Command="{Binding DeleteTranformatorCommand}"/>
 
-
+        </StackPanel>
+       
 
 
     </Grid>

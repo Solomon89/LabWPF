@@ -1,4 +1,6 @@
-﻿using LabWPF.Models;
+﻿using LabWPF.Core;
+using LabWPF.Models;
+using LabWPF.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,10 +9,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace LabWPF.VIewModels
 {
-    class TransformatorsVM : INotifyPropertyChanged
+    class TransformatorsVM :BaseVM
     {
         public DataModel DataModel { get; set; }
         private Transformator selectedTransformator = new Transformator();
@@ -34,15 +37,44 @@ namespace LabWPF.VIewModels
         {
             DataModel = new DataModel();
         }
-
-        #region IPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void DeleteTranformator()
         {
-            var handler = PropertyChanged;
-            if (handler != null)
-                handler(this, new PropertyChangedEventArgs(propertyName));
+            if (selectedTransformator != null)
+            {
+                DataModel.Transformators.Remove(selectedTransformator);
+            }
+        }
+        private void ShowTranformatorInfo()
+        {
+
+            var view = new ShowTranformatorInfo();
+            TranformatorInfoVM VM = (TranformatorInfoVM)view.DataContext;
+            VM.Transformator = selectedTransformator;
+            VM.Close = view.Close;
+            view.Show();
+        }
+        #region ICommand
+        public ICommand DeleteTranformatorCommand
+        {
+            get
+            {
+                return new ActionCommand(() =>
+                {
+                    DeleteTranformator();
+                });
+            }
+        }
+        public ICommand ShowTranformatorInfoCommand
+        {
+            get
+            {
+                return new ActionCommand(() =>
+                {
+                    ShowTranformatorInfo();
+                });
+            }
         }
         #endregion
+
     }
 }
