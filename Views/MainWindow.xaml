@@ -34,10 +34,42 @@
             <Button  Width="60" Content="Добавить" Command="{Binding ShowTranformatorInfoNewCommand}"/>
             <Button  Width="60" Content="Подробнее" Command="{Binding ShowTranformatorInfoCommand}"/>
             <Button  Width="60" Content="Удалить" Command="{Binding DeleteTranformatorCommand}"/>
-
         </StackPanel>
-       
-
+        <Button Grid.Column="0" Grid.Row="2" Cursor="None" BorderBrush="#FF952A2A" Foreground="#FFAE1212">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFF4600" Offset="0"/>
+                    <GradientStop Color="#FFD3886C" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <StackPanel>
+                <Label Content="{Binding SelectedTransformator.Name}" />
+                <Label Content="{Binding SelectedTransformator.Resistance}" />
+                <Label Content="{Binding SelectedTransformator.Voltage}" />
+                <Image Source="/LabWPF;component/images/station_danger.png" Width="20"/>
+            </StackPanel>
+            
+        </Button>
+        <ItemsControl Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding DataModel.Transformators}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal">
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Height="140" Width="140">
+                        <StackPanel>
+                            <Label Content="{Binding Name}" />
+                            <Label Content="{Binding Resistance}" />
+                            <Label Content="{Binding Voltage}" />
+                            <Image Source="/LabWPF;component/images/station_danger.png" Width="20"/>
+                        </StackPanel>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
     </Grid>
 
